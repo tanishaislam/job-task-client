@@ -5,6 +5,9 @@ import Main from "../Pages/Shared/Main/Main";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivateRoutes from "./PrivateRoutes";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
 
 export const MyCreateRoutes = createBrowserRouter([
     {
@@ -25,5 +28,16 @@ export const MyCreateRoutes = createBrowserRouter([
         }
       ]
     },
+    {
+      path:'dashboard',
+      element:<PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+      children:[
+        //all users routes
+        {
+          path:'userProfile',
+          element:<UserProfile></UserProfile>
+        }
+      ]
+    }
   ]);
   

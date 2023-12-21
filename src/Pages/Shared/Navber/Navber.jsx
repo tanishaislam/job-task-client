@@ -1,19 +1,41 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../../../Providers/AuthProviders";
 
 const Navber = () => {
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogOut = ()=>{
+        logOut()
+        .then()
+        .catch(error => console.log(error))
+    }
+
     const navItem = <>
         <li className="font-semibold text-white"><Link to='/'>Home</Link></li>
         <li className="font-semibold text-white"><Link to='/contact'>Contact</Link></li>
         <li className="font-semibold text-white"><Link to='/about'>About</Link></li>
-        <li className="font-semibold text-white"><Link to='/login'>Login</Link></li>
+        {
+            user ? <>
+                <button onClick={handleLogOut} className="font-semibold text-white ">LogOut</button>
+            </>:<>
+                <li className="font-semibold text-white"><Link to='/login'>Login</Link></li>
+            </>
+        }
+        
     
     </>
     const navItem2 = <>
     <li className="font-semibold text-black"><Link to='/'>Home</Link></li>
     <li className="font-semibold text-black"><Link to='/contact'>Contact</Link></li>
     <li className="font-semibold text-black"><Link to='/about'>About</Link></li>
-    <li className="font-semibold text-black"><Link to='/login'>Login</Link></li>
+    {
+            user ? <>
+                <button onClick={handleLogOut} className="font-semibold text-black ">LogOut</button>
+            </>:<>
+                <li className="font-semibold text-black"><Link to='/login'>Login</Link></li>
+            </>
+        }
 
 </>
     return (

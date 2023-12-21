@@ -1,7 +1,33 @@
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import toast from "react-hot-toast";
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
+
+    const handleRegister = (e)=>{
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, email, password)
+        createUser(email,password, name)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            toast.success('Successfully Register !')
+        })
+        .catch((error) => {
+            console.log(error)
+            toast.error(error.message)
+          });
+    }
+
+
+
     return (
         <div>
             <div className="hero min-h-screen "  style={{backgroundImage: 'url(https://i.ibb.co/9cvxzNx/1ss.png)'}}>
@@ -10,7 +36,7 @@ const Register = () => {
                     <div className=" p-5">
                         <div className="card  w-full shadow-2xl bg-base-100 px-7">
                         <h1 className="text-3xl font-bold mb-4 text-center pt-10">Please <span className="text-blue-700">Register </span>Now!</h1>
-                        <form  className="card-body">
+                        <form onSubmit={handleRegister} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold">Enter Your Name</span>
@@ -23,17 +49,17 @@ const Register = () => {
                                     required 
                                 />
                             </div>
-                            <div className="form-control">
+                            {/* <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold">Photo Url</span>
                                 </label>
                                 <input 
                                     type="file"
-                                    name="name" 
+                                    name="files" 
                                     placeholder="Name" 
                                     required 
                                 />
-                            </div>
+                            </div> */}
                             <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Email</span>
@@ -62,7 +88,7 @@ const Register = () => {
                             </label>
                             </div>
                             <div className="form-control mt-6">
-                            <button className="btn btn-primary bg-blue-700 text-white border-none">Register</button>
+                            <input type="submit" className="btn btn-primary bg-blue-700 text-white border-none" value='Register' />
                             <button  className=" mt-5 btn btn-primary bg-gray-100 text-black border-none hover:text-white">
                             <FaGoogle />Continue With Google
                             </button>

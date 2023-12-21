@@ -1,7 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import toast from "react-hot-toast";
 
 const Login = () => {
+    const {signInUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathName || '/';
+
+    const handleLogin = (e)=>{
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log( email, password)
+        signInUser(email,password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            toast.success('Successfully Logged In !')
+            navigate(from, {replace: true})
+        })
+        .catch((error) => {
+            console.log(error)
+            toast.error(error.message)
+
+          });
+    }
+
     return (
         <div className="hero min-h-screen "  style={{backgroundImage: 'url(https://i.ibb.co/9cvxzNx/1ss.png)'}}>
             <div className="hero-overlay">
@@ -10,7 +39,7 @@ const Login = () => {
                 <div className="card  w-full shadow-2xl bg-base-100 px-7">
                 <h1 className="text-3xl font-bold mb-4 text-center pt-10">Please <span className="text-blue-700">Login </span>Now!</h1>
                 <p className="text-center text-gray-400"> Lorem ipsum dolor sit amet consectetur. <br /> repellat voluptatem.</p>
-                <form  className="card-body">
+                <form onSubmit={handleLogin} className="card-body">
                     <div className="form-control">
                     <label className="label">
                         <span className="label-text font-semibold">Email</span>
@@ -39,7 +68,7 @@ const Login = () => {
                     </label>
                     </div>
                     <div className="form-control mt-6">
-                    <button className="btn btn-primary bg-blue-700 text-white border-none">Login</button>
+                    <input type="submit" className="btn btn-primary bg-blue-700 text-white border-none" value='Login' />
                     <button  className=" mt-5 btn btn-primary bg-gray-100 text-black border-none hover:text-white">
                     <FaGoogle />Continue With Google
                     </button>
