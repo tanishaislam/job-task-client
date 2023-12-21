@@ -1,5 +1,4 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import toast from "react-hot-toast";
@@ -69,9 +68,6 @@ const Login = () => {
                     </div>
                     <div className="form-control mt-6">
                     <input type="submit" className="btn btn-primary bg-blue-700 text-white border-none" value='Login' />
-                    <button  className=" mt-5 btn btn-primary bg-gray-100 text-black border-none hover:text-white">
-                    <FaGoogle />Continue With Google
-                    </button>
                     </div>
                     <p className="text-center text-black  py-6">Do not have an account ? <Link to="/register" className="text-blue-700 font-bold">Please Register</Link></p>
                 </form>

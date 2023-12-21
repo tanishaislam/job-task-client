@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProviders";
+import avatarImage from '../../../assets/avaterImag.jpg'
 
 const Navber = () => {
     const {user, logOut} = useContext(AuthContext)
@@ -58,7 +59,7 @@ const Navber = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a><input type="checkbox" className="toggle" /></a>
+                    <img src={user && user?.photoURL ? user.photoURL : avatarImage} alt="" className="rounded-full h-8 w-8 border-2"/>
                 </div>
                 </div>
         </div>
