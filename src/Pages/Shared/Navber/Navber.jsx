@@ -6,12 +6,14 @@ const Navber = () => {
         <li className="font-semibold text-white"><Link to='/'>Home</Link></li>
         <li className="font-semibold text-white"><Link to='/contact'>Contact</Link></li>
         <li className="font-semibold text-white"><Link to='/about'>About</Link></li>
+        <li className="font-semibold text-white"><Link to='/login'>Login</Link></li>
     
     </>
     const navItem2 = <>
     <li className="font-semibold text-black"><Link to='/'>Home</Link></li>
     <li className="font-semibold text-black"><Link to='/contact'>Contact</Link></li>
     <li className="font-semibold text-black"><Link to='/about'>About</Link></li>
+    <li className="font-semibold text-black"><Link to='/login'>Login</Link></li>
 
 </>
     return (
