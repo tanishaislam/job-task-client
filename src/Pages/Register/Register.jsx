@@ -10,19 +10,29 @@ const Register = () => {
                     <div className=" p-5">
                         <div className="card  w-full shadow-2xl bg-base-100 px-7">
                         <h1 className="text-3xl font-bold mb-4 text-center pt-10">Please <span className="text-blue-700">Register </span>Now!</h1>
-                        <p className="text-center text-gray-400"> Lorem ipsum dolor sit amet consectetur. <br /> repellat voluptatem.</p>
                         <form  className="card-body">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text font-semibold">Enter Your Name</span>
-                            </label>
-                            <input 
-                                type="text"
-                                name="name" 
-                                placeholder="Name" 
-                                className="input input-bordered" 
-                                required 
-                            />
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-semibold">Enter Your Name</span>
+                                </label>
+                                <input 
+                                    type="text"
+                                    name="name" 
+                                    placeholder="Name" 
+                                    className="input input-bordered" 
+                                    required 
+                                />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-semibold">Photo Url</span>
+                                </label>
+                                <input 
+                                    type="file"
+                                    name="name" 
+                                    placeholder="Name" 
+                                    required 
+                                />
                             </div>
                             <div className="form-control">
                             <label className="label">
