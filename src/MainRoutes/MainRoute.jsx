@@ -61,7 +61,7 @@ export const MyCreateRoutes = createBrowserRouter([
         {
           path: 'editTask/:id',
           element: <PrivateRoutes><EditTask></EditTask></PrivateRoutes>,
-          loader: ({params})=>fetch(`http://localhost:5000/tasks/${params.id}`)
+          loader: ({params})=>fetch(`https://job-task-server-five-pink.vercel.app/tasks/${params.id}`)
         }
       ]
     }

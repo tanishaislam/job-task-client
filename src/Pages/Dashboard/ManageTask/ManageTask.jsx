@@ -19,7 +19,7 @@ const ManageTask = () => {
     const [tasks, setTasks] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/tasks')
+        fetch('https://job-task-server-five-pink.vercel.app/tasks')
         .then(res => res.json())
         .then(data => setTasks(data))
     },[])
@@ -52,7 +52,7 @@ const ManageTask = () => {
           })
           .then(willDelete => {
             if (willDelete) {
-                fetch(`http://localhost:5000/tasks/${id}`,{
+                fetch(`https://job-task-server-five-pink.vercel.app/tasks/${id}`,{
                     method: 'DELETE'
                 })
                 .then(res=> res.json())
