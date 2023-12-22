@@ -37,19 +37,25 @@ const Dashboard = () => {
                     user?.email ?<>
                     <li>
                         <NavLink to='/dashboard/userProfile'>
+                        <span className="text-blue-500">
                         <FaUserLarge />
+                        </span>
                             User Profile
                         </NavLink>
                     </li> 
                     <li>
                         <NavLink to='/dashboard/createTask'>
-                        <FaTasks />
+                        <span className="text-blue-500">
+                        <FaTasks/>
+                        </span>
                             Create Tasks
                         </NavLink>
                     </li>  
                     <li>
                         <NavLink to='/dashboard/management'>
+                        <span className="text-blue-500">
                         <FaSwatchbook />
+                        </span>
                             Manage Your Tasks
                         </NavLink>
                     </li>  
