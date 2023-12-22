@@ -2,6 +2,7 @@
 // import useAxiosPublic from "../../../api/useAxiosPublic";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { useEffect, useState } from "react";
+import swal from "sweetalert";
 
 
 const ManageTask = () => {
@@ -40,6 +41,33 @@ const ManageTask = () => {
             return setTasks(recorderTask)
         }
     }
+
+    const handleDelete = id => {
+        swal({
+            title: "Are you sure?",
+            text: "Are you sure You want to delete this task",
+            icon: "warning",
+            dangerMode: true,
+          })
+          .then(willDelete => {
+            if (willDelete) {
+                fetch(`http://localhost:5000/tasks/${id}`,{
+                    method: 'DELETE'
+                })
+                .then(res=> res.json())
+                .then(data => {
+                    console.log(data);
+                    if(data?.deletedCount > 0){
+                        swal("Deleted!", "Your imaginary file has been deleted!", "success");
+                        const remaining = tasks.filter(task => task._id !== id)
+                        setTasks(remaining)
+                    }
+                    
+                })
+              
+            }
+          });
+    }
     return (
         <div>
              <h1 className="lg:text-2xl md:text-2xl text-xl text-center font-bold mb-20">-- Manage Your <span className="text-blue-700">Task </span>--</h1>
@@ -63,11 +91,14 @@ const ManageTask = () => {
                                 <p className=""><span className="font-semibold">details: </span>{tasks?.description}</p>
                                 <p className=""><span className="font-semibold">Deadline: </span>{tasks?.deadline}</p>
                                 <p className=""><span className="font-semibold">Priority: </span>{tasks?.priority}</p>
+                                <div className="flex justify-end">
+                                <div className="badge badge-primary badge-outline mr-2 cursor-pointer">Edit</div>
+                                <div onClick={()=>handleDelete(tasks._id)} className="badge badge-error badge-outline cursor-pointer">Delete</div>
+                                </div>
 
                             </div>
                             </div>
-                            
-                            
+                                                  
                             )}
                           
                         </Draggable>
@@ -76,9 +107,6 @@ const ManageTask = () => {
                     {provided.placeholder}  
 
                     </div>
-
-
-
 
                 )}
                     
