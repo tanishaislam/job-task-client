@@ -42,13 +42,13 @@ const Dashboard = () => {
                         </NavLink>
                     </li> 
                     <li>
-                        <NavLink to='/dashboard/announcements'>
+                        <NavLink to='/dashboard/createTask'>
                         <FaTasks />
                             Create Tasks
                         </NavLink>
                     </li>  
                     <li>
-                        <NavLink to='/dashboard/announcements'>
+                        <NavLink to='/dashboard/management'>
                         <FaSwatchbook />
                             Manage Your Tasks
                         </NavLink>

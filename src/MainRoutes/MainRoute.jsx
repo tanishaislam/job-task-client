@@ -8,6 +8,8 @@ import Register from "../Pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
+import CreateTask from "../Pages/Dashboard/CreateTask/CreateTask";
+import ManageTask from "../Pages/Dashboard/ManageTask/ManageTask";
 
 export const MyCreateRoutes = createBrowserRouter([
     {
@@ -36,6 +38,14 @@ export const MyCreateRoutes = createBrowserRouter([
         {
           path:'userProfile',
           element:<UserProfile></UserProfile>
+        },
+        {
+          path: 'createTask',
+          element: <CreateTask></CreateTask>
+        },
+        {
+          path: 'management',
+          element: <ManageTask></ManageTask>
         }
       ]
     }

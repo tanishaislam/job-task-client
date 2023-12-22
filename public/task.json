@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Complete Project Proposal",
+        "description": "Draft and finalize the project proposal for the upcoming client meeting.",
+        "deadline": "2023-01-15T18:00:00Z",
+        "priority": "High"
+      },
+      {
+        "title": "Review User Interface Design",
+        "description": "Conduct a thorough review of the user interface design and provide feedback.",
+        "deadline": "2023-01-20T12:00:00Z",
+        "priority": "Moderate"
+      },
+      {
+        "title": "Prepare Monthly Report",
+        "description": "Compile and analyze data for the monthly report. Include key metrics and performance indicators.",
+        "deadline": "2023-02-01T15:30:00Z",
+        "priority": "High"
+      },
+      {
+        "title": "Test New Features",
+        "description": "Perform testing on the latest features implemented in the software.",
+        "deadline": "2023-02-10T10:00:00Z",
+        "priority": "Moderate"
+      },
+      {
+        "title": "Organize Team Building Event",
+        "description": "Plan and coordinate a team building event to boost team morale and collaboration.",
+        "deadline": "2023-02-28T14:00:00Z",
+        "priority": "Low"
+      },
+      {
+        "title": "Update Documentation",
+        "description": "Review and update the software documentation to reflect recent changes and improvements.",
+        "deadline": "2023-03-05T16:45:00Z",
+        "priority": "High"
+      },
+      {
+        "title": "Conduct Training Session",
+        "description": "Lead a training session for team members to familiarize them with the new tools and processes.",
+        "deadline": "2023-03-15T09:30:00Z",
+        "priority": "Moderate"
+      }
+]
