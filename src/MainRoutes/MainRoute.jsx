@@ -10,6 +10,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
 import CreateTask from "../Pages/Dashboard/CreateTask/CreateTask";
 import ManageTask from "../Pages/Dashboard/ManageTask/ManageTask";
+import EditTask from "../Pages/Dashboard/EditTask/EditTask";
 
 export const MyCreateRoutes = createBrowserRouter([
     {
@@ -46,6 +47,11 @@ export const MyCreateRoutes = createBrowserRouter([
         {
           path: 'management',
           element: <ManageTask></ManageTask>
+        },
+        {
+          path: 'editTask/:id',
+          element: <EditTask></EditTask>,
+          loader: ({params})=>fetch(`http://localhost:5000/tasks/${params.id}`)
         }
       ]
     }

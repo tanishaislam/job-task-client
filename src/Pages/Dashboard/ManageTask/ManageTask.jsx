@@ -3,6 +3,7 @@
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { useEffect, useState } from "react";
 import swal from "sweetalert";
+import { Link } from "react-router-dom";
 
 
 const ManageTask = () => {
@@ -91,8 +92,10 @@ const ManageTask = () => {
                                 <p className=""><span className="font-semibold">details: </span>{tasks?.description}</p>
                                 <p className=""><span className="font-semibold">Deadline: </span>{tasks?.deadline}</p>
                                 <p className=""><span className="font-semibold">Priority: </span>{tasks?.priority}</p>
-                                <div className="flex justify-end">
-                                <div className="badge badge-primary badge-outline mr-2 cursor-pointer">Edit</div>
+                                <div className="flex justify-end items-center">
+                                <Link to={`/dashboard/editTask/${tasks._id}`}>
+                                    <div className="badge badge-primary badge-outline mr-2 cursor-pointer">Edit</div>
+                                </Link>
                                 <div onClick={()=>handleDelete(tasks._id)} className="badge badge-error badge-outline cursor-pointer">Delete</div>
                                 </div>
 
