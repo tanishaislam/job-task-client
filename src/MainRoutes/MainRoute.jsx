@@ -11,6 +11,8 @@ import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
 import CreateTask from "../Pages/Dashboard/CreateTask/CreateTask";
 import ManageTask from "../Pages/Dashboard/ManageTask/ManageTask";
 import EditTask from "../Pages/Dashboard/EditTask/EditTask";
+import ContactPage from "../Pages/ContactPage/ContactPage";
+import About from "../Pages/About/About";
 
 export const MyCreateRoutes = createBrowserRouter([
     {
@@ -20,6 +22,14 @@ export const MyCreateRoutes = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>
+        },
+        {
+          path: 'contact',
+          element: <ContactPage></ContactPage>
+        },
+        {
+          path: 'about',
+          element: <About></About>
         },
         {
           path: 'login',
@@ -38,19 +48,19 @@ export const MyCreateRoutes = createBrowserRouter([
         //all users routes
         {
           path:'userProfile',
-          element:<UserProfile></UserProfile>
+          element:<PrivateRoutes><UserProfile></UserProfile></PrivateRoutes>
         },
         {
           path: 'createTask',
-          element: <CreateTask></CreateTask>
+          element:<PrivateRoutes><CreateTask></CreateTask></PrivateRoutes> 
         },
         {
           path: 'management',
-          element: <ManageTask></ManageTask>
+          element: <PrivateRoutes><ManageTask></ManageTask></PrivateRoutes>
         },
         {
           path: 'editTask/:id',
-          element: <EditTask></EditTask>,
+          element: <PrivateRoutes><EditTask></EditTask></PrivateRoutes>,
           loader: ({params})=>fetch(`http://localhost:5000/tasks/${params.id}`)
         }
       ]
